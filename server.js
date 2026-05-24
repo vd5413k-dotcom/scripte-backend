@@ -18,19 +18,12 @@ RÈGLES DE SÉLECTION D'IA STRICTES :
 - Recherche, data, actualités → GEMINI
 
 CONNAISSANCES EXPERTES :
-
 MIDJOURNEY : anglais, structure [sujet], [style], [éclairage], [ambiance], paramètres --ar 16:9 --v 6.1 --style raw --q 2 --stylize 750
-
 DALL-E : description précise, style photographique, éclairage, "shot on Canon EOS R5, f/1.8, golden hour"
-
 STABLE DIFFUSION : anglais, prompt positif + negative prompt "(worst quality:2), blurry, watermark"
-
 SUNO : balises [Style:], [Intro], [Verse 1], [Pre-Chorus], [Chorus], [Verse 2], [Bridge], [Outro] avec BPM et tonalité
-
 RUNWAY : anglais, [camera movement], [subject], [action], [environment], [lighting], durée 4s ou 8s
-
 CHATGPT : rôle expert + contexte + tâche + contraintes + format de sortie
-
 CLAUDE : contexte + objectif + contraintes techniques + format
 
 PROCESSUS :
@@ -67,6 +60,14 @@ Prompt expert avec syntaxe exacte de l'IA cible.
 [RECOMMANDATION]
 Une phrase naturelle sans astérisques expliquant le choix de l'IA.
 [/RECOMMANDATION]
+
+[SCORE]
+NOTE: (nombre entre 0 et 100)
+CLARTE: (Excellente/Bonne/Moyenne/Faible)
+PRECISION: (Excellente/Bonne/Moyenne/Faible)
+OPTIMISATION: (Excellente/Bonne/Moyenne/Faible)
+CONSEIL: (une phrase courte pour améliorer le prompt si score < 90)
+[/SCORE]
 
 RÈGLE ABSOLUE : N'utilise JAMAIS de markdown, jamais d'astérisques, jamais de # dans tes réponses. Texte brut uniquement.`;
 
