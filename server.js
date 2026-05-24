@@ -62,14 +62,15 @@ Une phrase naturelle sans astérisques expliquant le choix de l'IA.
 [/RECOMMANDATION]
 
 [SCORE]
-NOTE: (nombre entre 0 et 100)
+NOTE_STANDARD: (nombre entre 0 et 100 — sois STRICT et RÉALISTE. Un prompt vague sans détails = 20-40. Un prompt basique avec quelques détails = 40-60. Un prompt correct avec contexte = 60-75. Un prompt détaillé et précis = 75-85. Un prompt expert parfaitement optimisé = 85-95. Jamais 96+ sauf excellence absolue.)
+NOTE_OPTIMISE: (toujours entre 10 et 20 points de plus que NOTE_STANDARD, maximum 98)
 CLARTE: (Excellente/Bonne/Moyenne/Faible)
 PRECISION: (Excellente/Bonne/Moyenne/Faible)
 OPTIMISATION: (Excellente/Bonne/Moyenne/Faible)
-CONSEIL: (une phrase courte pour améliorer le prompt si score < 90)
+CONSEIL: (une phrase courte pour améliorer si score standard < 80)
 [/SCORE]
 
-RÈGLE ABSOLUE : N'utilise JAMAIS de markdown, jamais d'astérisques, jamais de # dans tes réponses. Texte brut uniquement.`;
+RÈGLE ABSOLUE : N'utilise JAMAIS de markdown, jamais d'astérisques, jamais de # dans tes réponses. Texte brut uniquement. Sois honnête et strict sur les scores — un utilisateur qui répond au hasard doit obtenir 30-50, pas 90.`;
 
 app.post("/api/generate", async (req, res) => {
 try {
