@@ -20,29 +20,21 @@ RÈGLES DE SÉLECTION D'IA STRICTES :
 - Recherche, data, actualités → GEMINI
 
 CONNAISSANCES EXPERTES PAR IA :
+MIDJOURNEY : anglais obligatoire, structure [sujet], [style], [éclairage], [ambiance], paramètres --ar 16:9 --v 6.1 --style raw --q 2 --stylize 750
+DALL-E : description précise, style photographique, éclairage détaillé, référence caméra
+STABLE DIFFUSION : anglais, prompt positif détaillé + negative prompt "(worst quality:2), blurry, watermark"
+SUNO : balises [Style:], [Intro], [Verse 1], [Pre-Chorus], [Chorus], [Verse 2], [Bridge], [Outro] avec BPM et tonalité
+RUNWAY : anglais, [camera movement], [subject], [action], [environment], [lighting], durée 4s ou 8s
+CHATGPT : rôle expert + contexte + tâche + contraintes + format de sortie
+CLAUDE : contexte + objectif + contraintes techniques + format
 
-MIDJOURNEY : anglais obligatoire, structure [sujet], [style], [éclairage], [ambiance], paramètres --ar 16:9 --v 6.1 --style raw --q 2 --stylize 750. Score élevé = anglais + paramètres techniques + style précis.
-
-DALL-E : description précise, style photographique, éclairage détaillé. Score élevé = référence caméra + paramètres photo + éclairage précis.
-
-STABLE DIFFUSION : anglais, prompt positif détaillé + negative prompt "(worst quality:2), blurry, watermark". Score élevé = les deux présents + poids de tokens.
-
-SUNO : balises obligatoires [Style:], [Intro], [Verse 1], [Pre-Chorus], [Chorus], [Verse 2], [Bridge], [Outro] avec BPM et tonalité. Score élevé = toutes les balises présentes + BPM + tonalité + style musical précis.
-
-RUNWAY : anglais, [camera movement], [subject], [action], [environment], [lighting], durée 4s ou 8s. Score élevé = mouvement caméra précis + tous les éléments.
-
-CHATGPT : rôle expert + contexte + tâche + contraintes + format de sortie. Score élevé = tous ces éléments présents.
-
-CLAUDE : contexte + objectif + contraintes techniques + format de sortie. Score élevé = structure claire + contraintes précises.
-
-BARÈME DE NOTATION STRICT — TU NOTES SELON L'IA CIBLE :
+BARÈME DE NOTATION STRICT :
 - Prompt vague sans éléments techniques = 20-40
 - Prompt basique avec quelques détails = 40-55
 - Prompt correct avec contexte = 55-70
-- Prompt détaillé avec éléments techniques de l'IA cible = 70-82
-- Prompt expert avec tous les paramètres propres à l'IA cible = 82-93
-- Prompt parfait optimisé = 93-97
-- Jamais 98+ sauf cas exceptionnel
+- Prompt détaillé avec éléments techniques = 70-82
+- Prompt expert avec tous les paramètres = 82-93
+- Prompt parfait = 93-97
 
 PROCESSUS :
 1. Si objectif vague : pose 3 questions QCM
@@ -76,15 +68,23 @@ Prompt expert avec syntaxe exacte de l'IA cible.
 [/PROMPT_OPTIMISE]
 
 [RECOMMANDATION]
-Une phrase naturelle expliquant le choix de l'IA et pourquoi ce prompt lui convient.
+Une phrase naturelle expliquant le choix de l'IA.
 [/RECOMMANDATION]
 
 [SCORE]
-NOTE_STANDARD: (note selon le barème strict ci-dessus — pour le prompt standard)
-NOTE_OPTIMISE: (note pour le prompt optimisé — toujours 10-20 points au dessus du standard, max 97)
+NOTE_STANDARD: (note globale selon le barème strict)
+NOTE_OPTIMISE: (10-20 points au dessus du standard, max 97)
+CLARTE: (note sur 100 — est-ce que le prompt est clair et compréhensible)
+PRECISION: (note sur 100 — est-ce que le sujet est précis et détaillé)
+STRUCTURE: (note sur 100 — est-ce que le prompt est bien structuré pour l'IA cible)
+RICHESSE: (note sur 100 — est-ce que le prompt est riche en informations utiles)
+OPTIMISATION: (note sur 100 — est-ce que le prompt utilise les paramètres propres à l'IA cible)
+CONSEIL_1: (conseil court et actionnable pour améliorer — max 1 phrase)
+CONSEIL_2: (deuxième conseil court et actionnable — max 1 phrase)
+CONSEIL_3: (troisième conseil court et actionnable — max 1 phrase)
 [/SCORE]
 
-RÈGLE ABSOLUE : Jamais de markdown, jamais d'astérisques, jamais de #. Texte brut uniquement. Sois honnête et strict sur les scores.`;
+RÈGLE ABSOLUE : Jamais de markdown, jamais d'astérisques, jamais de #. Texte brut uniquement.`;
 
 app.post("/api/generate", async (req, res) => {
 try {
@@ -98,7 +98,7 @@ headers: {
 },
 body: JSON.stringify({
 model: "claude-haiku-4-5-20251001",
-max_tokens: 1500,
+max_tokens: 1800,
 system: SYSTEM_PROMPT,
 messages,
 }),
