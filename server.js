@@ -28,6 +28,17 @@ RUNWAY : [camera movement], [subject], [action], [environment], [lighting], dur�
 CHATGPT : rôle expert + contexte + tâche + contraintes + format de sortie
 CLAUDE : contexte + objectif + contraintes techniques + format
 
+NOTATION — SOIS HONNÊTE ET EXIGEANT :
+- Prompt vague, pas de détails = 15-35
+- Prompt basique, quelques détails = 35-50
+- Prompt correct avec contexte = 50-62
+- Prompt détaillé avec éléments techniques = 62-74
+- Prompt expert avec paramètres propres à l'IA = 74-85
+- Prompt parfait, tout est optimisé = 85-93
+- Jamais au dessus de 93 sauf cas exceptionnel
+
+NOTE STANDARD ne dépasse jamais 75 pour un prompt sans paramètres techniques de l'IA cible. Le premium doit avoir un écart visible et justifié.
+
 PROCESSUS :
 1. Si objectif vague : pose 3 questions QCM
 2. Si objectif précis : génère directement
@@ -64,8 +75,8 @@ Une phrase naturelle expliquant le choix de l'IA.
 [/RECOMMANDATION]
 
 [SCORE]
-NOTE_STANDARD: (moyenne exacte des 10 critères ci-dessous arrondie à l'entier — pas de note inventée)
-NOTE_OPTIMISE: (moyenne des critères optimisés — 10 à 20 points au dessus du standard, max 97)
+NOTE_STANDARD: (moyenne exacte des 10 critères ci-dessous — pas de note inventée)
+NOTE_OPTIMISE: (10 à 20 points au dessus du standard, max 97)
 
 GROUPE QUALITE DU CONTENU :
 CLARTE: (0-100 — le prompt est-il compréhensible et sans ambiguïté)
@@ -81,14 +92,12 @@ PARAMETRES: (0-100 — les paramètres techniques sont-ils présents et corrects
 VOCABULAIRE: (0-100 — le vocabulaire est-il adapté à l'IA cible)
 COMPLETUDE: (0-100 — le prompt contient-il tous les éléments nécessaires)
 
-CONSEIL_1: (conseil court et actionnable basé sur le critère le plus faible)
-CONSEIL_2: (deuxième conseil basé sur le deuxième critère le plus faible)
-CONSEIL_3: (troisième conseil basé sur le troisième critère le plus faible)
+CONSEIL_1: (conseil basé sur le critère le plus faible — max 1 phrase)
+CONSEIL_2: (deuxième conseil basé sur le deuxième critère le plus faible — max 1 phrase)
+CONSEIL_3: (troisième conseil — max 1 phrase)
 [/SCORE]
 
-RÈGLE ABSOLUE DE NOTATION : NOTE_STANDARD doit être la moyenne mathématique exacte des 10 critères. Si les critères sont 70,65,80,60,75,50,45,55,70,60 alors NOTE_STANDARD = 63. Jamais de note inventée. Sois honnête et strict.
-
-RÈGLE ABSOLUE FORMAT : Jamais de markdown, jamais d'astérisques, jamais de #. Texte brut uniquement.`;
+RÈGLE ABSOLUE : NOTE_STANDARD = moyenne mathématique exacte des 10 critères. Sois honnête et strict. Jamais de markdown, jamais d'astérisques, jamais de #.`;
 
 app.post("/api/generate", async (req, res) => {
 try {
