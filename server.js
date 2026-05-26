@@ -28,16 +28,18 @@ RUNWAY : [camera movement], [subject], [action], [environment], [lighting], dur�
 CHATGPT : rôle expert + contexte + tâche + contraintes + format de sortie
 CLAUDE : contexte + objectif + contraintes techniques + format
 
-NOTATION — SOIS HONNÊTE ET EXIGEANT :
-- Prompt vague, pas de détails = 15-35
-- Prompt basique, quelques détails = 35-50
-- Prompt correct avec contexte = 50-62
-- Prompt détaillé avec éléments techniques = 62-74
-- Prompt expert avec paramètres propres à l'IA = 74-85
-- Prompt parfait, tout est optimisé = 85-93
-- Jamais au dessus de 93 sauf cas exceptionnel
+NOTATION STANDARD — SOIS TRÈS STRICT ET HONNÊTE :
+Le prompt STANDARD est un prompt naturel sans syntaxe experte. Il doit être noté sévèrement.
+- Prompt vague, pas de détails = 10-25
+- Prompt basique, quelques détails = 25-38
+- Prompt correct avec contexte = 38-50
+- Prompt détaillé mais sans paramètres IA = 50-62
+- Prompt très détaillé avec bonne structure = 62-70
+- MAXIMUM ABSOLU pour un prompt standard = 72
+- Un prompt standard ne dépasse JAMAIS 72, peu importe sa qualité
 
-NOTE STANDARD ne dépasse jamais 75 pour un prompt sans paramètres techniques de l'IA cible. Le premium doit avoir un écart visible et justifié.
+NOTE_OPTIMISE (prompt IA-to-IA) = toujours 15 à 25 points au dessus du standard, max 95.
+C'est ce gap qui justifie le premium — il doit être visible et significatif.
 
 PROCESSUS :
 1. Si objectif vague : pose 3 questions QCM
@@ -75,29 +77,29 @@ Une phrase naturelle expliquant le choix de l'IA.
 [/RECOMMANDATION]
 
 [SCORE]
-NOTE_STANDARD: (moyenne exacte des 10 critères ci-dessous — pas de note inventée)
-NOTE_OPTIMISE: (10 à 20 points au dessus du standard, max 97)
+NOTE_STANDARD: (moyenne exacte des 10 critères — MAXIMUM 72)
+NOTE_OPTIMISE: (15 à 25 points au dessus du standard, max 95)
 
 GROUPE QUALITE DU CONTENU :
-CLARTE: (0-100 — le prompt est-il compréhensible et sans ambiguïté)
-PRECISION: (0-100 — le sujet est-il précis et bien défini)
-RICHESSE: (0-100 — le prompt est-il riche en détails utiles)
-ORIGINALITE: (0-100 — le prompt apporte-t-il une direction créative unique)
-COHERENCE: (0-100 — les éléments du prompt sont-ils cohérents entre eux)
+CLARTE: (0-100)
+PRECISION: (0-100)
+RICHESSE: (0-100)
+ORIGINALITE: (0-100)
+COHERENCE: (0-100)
 
 GROUPE OPTIMISATION TECHNIQUE :
-STRUCTURE: (0-100 — le prompt suit-il la structure attendue par l'IA cible)
-SYNTAXE_IA: (0-100 — le prompt utilise-t-il la syntaxe propre à l'IA cible)
-PARAMETRES: (0-100 — les paramètres techniques sont-ils présents et corrects)
-VOCABULAIRE: (0-100 — le vocabulaire est-il adapté à l'IA cible)
-COMPLETUDE: (0-100 — le prompt contient-il tous les éléments nécessaires)
+STRUCTURE: (0-100 — très bas si pas de syntaxe IA)
+SYNTAXE_IA: (0-100 — 0 à 20 max pour un prompt standard sans paramètres)
+PARAMETRES: (0-100 — 0 à 15 max pour un prompt standard)
+VOCABULAIRE: (0-100)
+COMPLETUDE: (0-100)
 
-CONSEIL_1: (conseil basé sur le critère le plus faible — max 1 phrase)
-CONSEIL_2: (deuxième conseil basé sur le deuxième critère le plus faible — max 1 phrase)
-CONSEIL_3: (troisième conseil — max 1 phrase)
+CONSEIL_1: (conseil basé sur le critère le plus faible)
+CONSEIL_2: (deuxième conseil)
+CONSEIL_3: (troisième conseil)
 [/SCORE]
 
-RÈGLE ABSOLUE : NOTE_STANDARD = moyenne mathématique exacte des 10 critères. Sois honnête et strict. Jamais de markdown, jamais d'astérisques, jamais de #.`;
+RÈGLE ABSOLUE : NOTE_STANDARD = moyenne mathématique exacte des 10 critères. JAMAIS au dessus de 72. Jamais de markdown.`;
 
 app.post("/api/generate", async (req, res) => {
 try {
