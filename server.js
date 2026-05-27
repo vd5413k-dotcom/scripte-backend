@@ -28,18 +28,20 @@ RUNWAY : [camera movement], [subject], [action], [environment], [lighting], dur�
 CHATGPT : rôle expert + contexte + tâche + contraintes + format de sortie
 CLAUDE : contexte + objectif + contraintes techniques + format
 
-NOTATION STANDARD — SOIS TRÈS STRICT ET HONNÊTE :
-Le prompt STANDARD est un prompt naturel sans syntaxe experte. Il doit être noté sévèrement.
-- Prompt vague, pas de détails = 10-25
-- Prompt basique, quelques détails = 25-38
-- Prompt correct avec contexte = 38-50
-- Prompt détaillé mais sans paramètres IA = 50-62
-- Prompt très détaillé avec bonne structure = 62-70
-- MAXIMUM ABSOLU pour un prompt standard = 72
-- Un prompt standard ne dépasse JAMAIS 72, peu importe sa qualité
+NOTATION DU PROMPT STANDARD — RÈGLES STRICTES :
 
-NOTE_OPTIMISE (prompt IA-to-IA) = toujours 15 à 25 points au dessus du standard, max 95.
-C'est ce gap qui justifie le premium — il doit être visible et significatif.
+Le prompt STANDARD est un prompt naturel en langage courant. Il ne contient PAS de syntaxe technique IA.
+Pour un prompt standard, SYNTAXE_IA et PARAMETRES doivent être notés entre 40 et 60 — ce n'est pas un défaut, c'est normal pour un prompt standard.
+Les autres critères (CLARTE, PRECISION, RICHESSE, ORIGINALITE, COHERENCE, STRUCTURE, VOCABULAIRE, COMPLETUDE) doivent être notés honnêtement selon la qualité réelle du contenu.
+
+BARÈME GLOBAL :
+- Prompt vague, une ligne sans détails = 55-62
+- Prompt correct avec quelques détails = 62-70
+- Prompt détaillé et bien structuré = 70-78
+- Prompt très détaillé et précis = 78-83
+- MAXIMUM ABSOLU pour un prompt standard = 83
+
+NOTE_OPTIMISE (prompt IA-to-IA) = toujours 12 à 20 points au dessus du standard, max 95.
 
 PROCESSUS :
 1. Si objectif vague : pose 3 questions QCM
@@ -77,8 +79,8 @@ Une phrase naturelle expliquant le choix de l'IA.
 [/RECOMMANDATION]
 
 [SCORE]
-NOTE_STANDARD: (moyenne exacte des 10 critères — MAXIMUM 72)
-NOTE_OPTIMISE: (15 à 25 points au dessus du standard, max 95)
+NOTE_STANDARD: (moyenne exacte des 10 critères — MAXIMUM 83)
+NOTE_OPTIMISE: (12 à 20 points au dessus du standard, max 95)
 
 GROUPE QUALITE DU CONTENU :
 CLARTE: (0-100)
@@ -88,9 +90,9 @@ ORIGINALITE: (0-100)
 COHERENCE: (0-100)
 
 GROUPE OPTIMISATION TECHNIQUE :
-STRUCTURE: (0-100 — très bas si pas de syntaxe IA)
-SYNTAXE_IA: (0-100 — 0 à 20 max pour un prompt standard sans paramètres)
-PARAMETRES: (0-100 — 0 à 15 max pour un prompt standard)
+STRUCTURE: (0-100)
+SYNTAXE_IA: (40-60 pour un prompt standard — normal de ne pas avoir la syntaxe experte)
+PARAMETRES: (40-60 pour un prompt standard — normal de ne pas avoir les paramètres techniques)
 VOCABULAIRE: (0-100)
 COMPLETUDE: (0-100)
 
@@ -99,7 +101,7 @@ CONSEIL_2: (deuxième conseil)
 CONSEIL_3: (troisième conseil)
 [/SCORE]
 
-RÈGLE ABSOLUE : NOTE_STANDARD = moyenne mathématique exacte des 10 critères. JAMAIS au dessus de 72. Jamais de markdown.`;
+RÈGLE ABSOLUE : NOTE_STANDARD = moyenne mathématique exacte des 10 critères. Jamais de markdown.`;
 
 app.post("/api/generate", async (req, res) => {
 try {
